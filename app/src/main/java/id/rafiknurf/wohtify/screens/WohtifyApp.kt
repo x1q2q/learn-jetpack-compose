@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import id.rafiknurf.wohtify.R
 import id.rafiknurf.wohtify.components.NavBar
+import id.rafiknurf.wohtify.models.CartRepository
 import id.rafiknurf.wohtify.models.Routes
 import id.rafiknurf.wohtify.ui.theme.Secondary
 
@@ -33,7 +34,7 @@ fun WohtifyApp() {
             AppBar()
         }, content =  {
             when(selectedRoute.value){
-                Routes.AlbumPage.route -> AlbumPage(pdValues = it)
+                Routes.AlbumPage.route -> AlbumPage(pdValues = it, CartRepository())
                 Routes.OfferPage.route -> OfferPage(pdValues = it)
                 Routes.OrderPage.route -> OrderPage(pdValues = it)
                 Routes.ProfilePage.route -> ProfilePage(pdValues = it)
