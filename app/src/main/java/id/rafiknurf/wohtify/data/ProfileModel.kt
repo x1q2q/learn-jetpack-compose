@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.models
+package id.rafiknurf.wohtify.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

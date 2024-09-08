@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.screens
+package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,12 +27,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import id.rafiknurf.wohtify.R
-import id.rafiknurf.wohtify.models.Album
-import id.rafiknurf.wohtify.models.CartRepository
+import id.rafiknurf.wohtify.data.Album
+import id.rafiknurf.wohtify.data.CartRepository
 import id.rafiknurf.wohtify.ui.theme.LightGray
 import id.rafiknurf.wohtify.ui.theme.Primary
 
-fun Double.format(digits:Int) = "%.${digits}f".format(this)
+fun Double.toRupiah(): String = "Rp.%,.2f".format(this).replace(',','.')
 
 
  @Composable
@@ -56,7 +56,7 @@ fun AlbumPage(pdValues: PaddingValues, cartRepository: CartRepository){
                             .background(LightGray)
                             .padding(12.dp)
                     ){
-                        AlbumItem(album = Album(1, "Now I See The Light",2000.0, ""), onAdd = {})
+                        AlbumItem(album = Album(1, "Now I See The Light",200000.0, ""), onAdd = {})
                     }
                 }
             }
@@ -85,7 +85,7 @@ fun AlbumItem(album: Album, onAdd:(Album)->Unit) {
             ){
             Column{
                 Text(album.name, fontWeight = FontWeight.Bold)
-                Text("Rp. ${album.price.format(2)}")
+                Text(album.price.toRupiah())
             }
             OutlinedButton(
                 colors = ButtonDefaults.buttonColors(

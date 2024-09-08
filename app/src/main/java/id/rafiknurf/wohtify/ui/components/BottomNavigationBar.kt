@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.components
+package id.rafiknurf.wohtify.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,13 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import id.rafiknurf.wohtify.models.NavPage
-import id.rafiknurf.wohtify.models.Routes
-import id.rafiknurf.wohtify.ui.theme.LightGray
-import id.rafiknurf.wohtify.ui.theme.LightGreen
-import id.rafiknurf.wohtify.ui.theme.LightRed
-import id.rafiknurf.wohtify.ui.theme.Primary
-import id.rafiknurf.wohtify.ui.theme.Secondary
+import id.rafiknurf.wohtify.data.NavPage
+import id.rafiknurf.wohtify.data.Routes
 
 @Composable
 fun NavBarItem(page: NavPage, selected:Boolean = false, modifier : Modifier =Modifier) {

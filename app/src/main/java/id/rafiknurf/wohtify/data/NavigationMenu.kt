@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.models
+package id.rafiknurf.wohtify.data
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Person

@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.screens
+package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,7 +14,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import id.rafiknurf.wohtify.models.ProfileViewModel
+import id.rafiknurf.wohtify.data.ProfileViewModel
 
 
 @Composable
@@ -44,5 +44,8 @@ fun InputField(name: String, onNameChange: (String) -> Unit){
         Text(text="Hello, $name",modifier=Modifier.padding(bottom=8.dp),
             style=MaterialTheme.typography.headlineSmall)
     }
-    OutlinedTextField(value = name, onValueChange =onNameChange, label={Text("Nama")} )
+    OutlinedTextField(value = name,
+        onValueChange = onNameChange,
+        label={Text("Nama")},
+        modifier = Modifier.fillMaxWidth())
 }

@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.models
+package id.rafiknurf.wohtify.data
 
 class Album(var id: Int, var name: String,
             var price: Double, var image: String){

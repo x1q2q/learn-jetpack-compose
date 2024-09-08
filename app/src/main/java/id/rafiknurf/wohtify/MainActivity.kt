@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import id.rafiknurf.wohtify.screens.WohtifyApp
+import id.rafiknurf.wohtify.ui.screens.WohtifyApp
 import id.rafiknurf.wohtify.ui.theme.WohTifyTheme
 
 class MainActivity : ComponentActivity() {

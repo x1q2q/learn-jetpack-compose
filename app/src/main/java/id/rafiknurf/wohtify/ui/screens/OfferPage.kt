@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.screens
+package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import id.rafiknurf.wohtify.R
-import id.rafiknurf.wohtify.models.ProfileViewModel
+import id.rafiknurf.wohtify.data.ProfileViewModel
 import id.rafiknurf.wohtify.ui.theme.Primary
 import id.rafiknurf.wohtify.ui.theme.Secondary
 

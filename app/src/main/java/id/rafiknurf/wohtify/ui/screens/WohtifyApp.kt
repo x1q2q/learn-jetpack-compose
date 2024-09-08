@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.screens
+package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,9 +20,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import id.rafiknurf.wohtify.R
-import id.rafiknurf.wohtify.components.NavBar
-import id.rafiknurf.wohtify.models.CartRepository
-import id.rafiknurf.wohtify.models.Routes
+import id.rafiknurf.wohtify.ui.components.NavBar
+import id.rafiknurf.wohtify.data.CartRepository
+import id.rafiknurf.wohtify.data.Routes
 import id.rafiknurf.wohtify.ui.theme.Secondary
 
 

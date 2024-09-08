@@ -62,7 +62,16 @@ dependencies {
     implementation(libs.androidx.runtime.livedata)
 
     // add Hilt Navigation Compose
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha01")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    // Retrofit for HTTP Client
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // OkHttp
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    // JSON Converter
+    implementation("com.squareup.retrofit2:converter-gson:2.7.1")
+    // AsyncImage
+    implementation("io.coil-kt:coil-compose:2.0.0-rc03")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

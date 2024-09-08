@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.models
+package id.rafiknurf.wohtify.data
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,6 +8,7 @@ class CartRepository{
     var menu: List<Category> by mutableStateOf(listOf())
     var cart: List<ItemInCart> by mutableStateOf(listOf())
     fun cartAdd(album: Album){
+        // its not adding to the array but create array everyTime
         var found =  false
         cart.forEach{
             if(album.id == it.album.id){
@@ -17,6 +18,7 @@ class CartRepository{
         }
         // its a state, we have to changet the whole list, not mutate its
         if(!found){
+//            *cart.toTypedArray() => is to clone the list, create copy
             cart = listOf(*cart.toTypedArray(),ItemInCart(album, 1))
         }
     }

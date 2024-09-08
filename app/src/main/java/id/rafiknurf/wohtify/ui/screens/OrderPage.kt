@@ -1,4 +1,4 @@
-package id.rafiknurf.wohtify.screens
+package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
