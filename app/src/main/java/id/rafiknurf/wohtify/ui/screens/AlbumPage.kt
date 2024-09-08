@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -26,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import id.rafiknurf.wohtify.R
 import id.rafiknurf.wohtify.data.Album
 import id.rafiknurf.wohtify.data.CartRepository
@@ -48,15 +51,24 @@ fun AlbumPage(pdValues: PaddingValues, cartRepository: CartRepository){
                 color = Primary
             )
             LazyColumn{
-                items(5){
-                    Card(
-                        elevation = CardDefaults.elevatedCardElevation(),
-                        shape= RoundedCornerShape(12.dp),
+                items(cartRepository.menu){
+                    Text(it.name,
+                        color = Primary,
                         modifier = Modifier
-                            .background(LightGray)
-                            .padding(12.dp)
-                    ){
-                        AlbumItem(album = Album(1, "Now I See The Light",200000.0, ""), onAdd = {})
+                            .padding(20.dp,20.dp,10.dp,10.dp)
+                    )
+                    it.products.forEach{
+                        Card(
+                            elevation = CardDefaults.elevatedCardElevation(),
+                            shape= RoundedCornerShape(12.dp),
+                            modifier = Modifier
+                                .background(LightGray)
+                                .padding(12.dp)
+                        ){
+                            AlbumItem(it){
+                                cartRepository.cartAdd(it)
+                            }
+                        }
                     }
                 }
             }
@@ -69,13 +81,13 @@ fun AlbumItem(album: Album, onAdd:(Album)->Unit) {
     Column(modifier = Modifier
         .fillMaxWidth()
         .background(color = Color.White)){
-        Image(
-            painter= painterResource(id = R.drawable.toe_nistl),
+        AsyncImage(
+            model=album.imageUrl,
             contentDescription = "Image for ${album.name}",
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(18.dp)
+                .height(180.dp)
         )
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,

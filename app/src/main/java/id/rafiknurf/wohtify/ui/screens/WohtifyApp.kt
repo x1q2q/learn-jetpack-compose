@@ -1,13 +1,18 @@
 package id.rafiknurf.wohtify.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -18,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import id.rafiknurf.wohtify.R
 import id.rafiknurf.wohtify.ui.components.NavBar
@@ -27,14 +33,14 @@ import id.rafiknurf.wohtify.ui.theme.Secondary
 
 
 @Composable
-fun WohtifyApp() {
+fun WohtifyApp(cartRepository: CartRepository) {
     var selectedRoute = remember { mutableStateOf(Routes.AlbumPage.route)}
     Scaffold(
         topBar = {
             AppBar()
         }, content =  {
             when(selectedRoute.value){
-                Routes.AlbumPage.route -> AlbumPage(pdValues = it, CartRepository())
+                Routes.AlbumPage.route -> AlbumPage(pdValues = it, cartRepository)
                 Routes.OfferPage.route -> OfferPage(pdValues = it)
                 Routes.OrderPage.route -> OrderPage(pdValues = it)
                 Routes.ProfilePage.route -> ProfilePage(pdValues = it)
@@ -78,4 +84,38 @@ fun AppBar(){
 //        containerColor = Primary) {
 //        Icon(Icons.Filled.Add, "Add")
 //    }
+//}
+
+
+//@Preview(showBackground = true, widthDp = 200)
+// use TitleCase
+//@Composable
+//fun FirstComposable(){
+//    var name = remember{ mutableStateOf("") }
+//    Column(){
+//        Row() {
+//            Text("Hello jetpack bruh",
+//                modifier= Modifier
+//                    .background(Color.LightGray)
+//                    .padding(16.dp))
+//            Text(text = "Hello, ${name.value}!",textAlign= TextAlign.Center)
+//        }
+//        TextField(value = name.value, onValueChange ={name.value = it} )
+//        OutlineBtn {
+//            println("Hello")
+//        }
+//    }
+//}
+
+//@Composable
+//fun OutlineBtn(onClick:()->Unit){
+//    OutlinedButton(onClick = { onClick()}) {
+//        Text("Simpan")
+//    }
+//}
+
+//@Preview(showBackground = true)
+//@Composable
+//fun SecondComposable(){
+//     Text("The Second Composable")
 //}

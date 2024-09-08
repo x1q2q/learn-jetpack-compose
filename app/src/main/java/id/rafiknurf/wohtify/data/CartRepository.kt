@@ -1,12 +1,33 @@
 package id.rafiknurf.wohtify.data
 
+import android.app.Application
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import id.rafiknurf.wohtify.services.API
+import kotlinx.coroutines.launch
 
-class CartRepository{
+class CartRepository(app: Application) : AndroidViewModel(app){
     var menu: List<Category> by mutableStateOf(listOf())
     var cart: List<ItemInCart> by mutableStateOf(listOf())
+
+    private fun fetchData(){
+        try{
+            viewModelScope.launch{
+                menu = API.menuService.fetchMenu()
+            }
+        }catch(ex: Exception){
+            // todo
+            println(ex)
+        }
+    }
+    init{
+        fetchData()
+    }
+
     fun cartAdd(album: Album){
         // its not adding to the array but create array everyTime
         var found =  false

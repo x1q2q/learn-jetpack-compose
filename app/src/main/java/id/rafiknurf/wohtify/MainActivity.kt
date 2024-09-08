@@ -21,53 +21,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import id.rafiknurf.wohtify.data.CartRepository
 import id.rafiknurf.wohtify.ui.screens.WohtifyApp
 import id.rafiknurf.wohtify.ui.theme.WohTifyTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var cartRepository = ViewModelProvider(this).get(CartRepository::class.java)
         enableEdgeToEdge()
         setContent {
             WohTifyTheme {
-                    Surface(modifier= Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-//                        FirstComposable()
-                        WohtifyApp()
-                    }
+                Surface(modifier= Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    WohtifyApp(cartRepository)
+                }
             }
         }
     }
 }
-
-//@Preview(showBackground = true, widthDp = 200)
-// use TitleCase
-@Composable
-fun FirstComposable(){
-    var name = remember{ mutableStateOf("") }
-    Column(){
-        Row() {
-            Text("Hello jetpack bruh",
-                modifier= Modifier
-                    .background(Color.LightGray)
-                    .padding(16.dp))
-            Text(text = "Hello, ${name.value}!",textAlign= TextAlign.Center)
-        }
-        TextField(value = name.value, onValueChange ={name.value = it} )
-        OutlineBtn {
-            println("Hello")
-        }
-    }
-}
-
-@Composable
-fun OutlineBtn(onClick:()->Unit){
-    OutlinedButton(onClick = { onClick()}) {
-        Text("Simpan")
-    }
-}
-
-//@Preview(showBackground = true)
-//@Composable
-//fun SecondComposable(){
-//     Text("The Second Composable")
-//}
