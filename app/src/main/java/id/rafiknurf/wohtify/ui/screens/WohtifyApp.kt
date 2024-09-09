@@ -41,8 +41,8 @@ fun WohtifyApp(cartRepository: CartRepository) {
         }, content =  {
             when(selectedRoute.value){
                 Routes.AlbumPage.route -> AlbumPage(pdValues = it, cartRepository)
-                Routes.OfferPage.route -> OfferPage(pdValues = it)
-                Routes.OrderPage.route -> OrderPage(pdValues = it)
+                Routes.BandPage.route -> BandPage(pdValues = it)
+                Routes.OrderPage.route -> OrderPage(pdValues = it, cartRepository)
                 Routes.ProfilePage.route -> ProfilePage(pdValues = it)
             }
         },
